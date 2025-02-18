@@ -4,6 +4,7 @@ import { OrbitControls, Environment } from "@react-three/drei";
 import FaceModel from "./components/FaceModel";
 import AnimatedText from "./components/AnimatedText";
 import { useEffect, useRef } from "react";
+import useCustomScroll from "./hook/useCustomScroll";
 
 
 export default function App() {
@@ -13,59 +14,19 @@ export default function App() {
     { title: "Contact", content: "Contact me at...", className: ""},
   ];
 
-  const startYRef = useRef(0);
-
-  useEffect(() => {
-    const handleWheel = (event) => {
-      event.preventDefault();
-      const slowDownFactor = 8;
-      const scrollAmount = event.deltaY / slowDownFactor;
-      window.scrollBy({
-        top: scrollAmount,
-        behavior: 'instant',
-      });
-    };
-
-    const handleTouchStart = (event) => {
-      startYRef.current = event.touches[0].clientY;
-    };
-
-    const handleTouchMove = (event) => {
-      event.preventDefault();
-      const currentY = event.touches[0].clientY;
-      const deltaY = startYRef.current - currentY;
-      const slowDownFactor = 3;
-      const scrollAmount = deltaY / slowDownFactor;
-      window.scrollBy({
-        top: scrollAmount,
-        behavior: 'instant',
-      });
-      startYRef.current = currentY;
-    };
-
-    // Tambahkan event listener
-    window.addEventListener("wheel", handleWheel, { passive: false });
-    window.addEventListener("touchstart", handleTouchStart, { passive: false });
-    window.addEventListener("touchmove", handleTouchMove, { passive: false });
-
-    // Bersihkan event listener saat komponen unmount
-    return () => {
-      window.removeEventListener("wheel", handleWheel);
-      window.removeEventListener("touchstart", handleTouchStart);
-      window.removeEventListener("touchmove", handleTouchMove);
-    };
-  }, []);
+  useCustomScroll();
 
   return (
     <div>
-      <div className="w-full fixed h-screen">
-        <Canvas camera={{ position: [0, 0, 5], fov: 45 }} style={{ width:'100vw' }}>
-          <ambientLight intensity={0.5} />
-          <directionalLight position={[1, 1, 1]} intensity={3} />
+      <div className="w-full fixed h-screen bg-[radial-gradient(ellipse_at_bottom,rgba(45,45,45,1)_10%,rgba(13,13,13,1)_70%)]">
+        <Canvas camera={{ position: [0, 0, 5], fov: 45 }} style={{ width:'100vw' }} gl={{ antialias: true }}>
+          <ambientLight intensity={0.5}/>
+          <directionalLight position={[2, -3, 2]} intensity={3}/>
+          <directionalLight position={[-4, 0, -1]} intensity={5} color={'#A91D3A'}/>
 
           <FaceModel />
 
-          <Environment preset="night" />
+          <Environment preset="night" environmentIntensity={1.3} />
         </Canvas>
       </div>
 
