@@ -3,11 +3,14 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Environment } from "@react-three/drei";
 import FaceModel from "./components/FaceModel";
 import AnimatedText from "./components/AnimatedText";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import useCustomScroll from "./hook/useCustomScroll";
+import Loading from "./components/Loading";
 
 
 export default function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
   const sections = [
     { title: "About Me", content: "Lorem ipsum dolor sit amet...", className: "" },
     { title: "Projects", content: "Some amazing projects...", className: "items-end"},
@@ -18,6 +21,7 @@ export default function App() {
 
   return (
     <div>
+      { isLoading && <Loading isLoading={isLoading} />}
       <div className="w-full fixed h-screen bg-[radial-gradient(ellipse_at_bottom,rgba(45,45,45,1)_10%,rgba(13,13,13,1)_70%)]">
         <Canvas camera={{ position: [0, 0, 5], fov: 45 }} style={{ width:'100vw' }} gl={{ antialias: true }}>
           <ambientLight intensity={0.5}/>
