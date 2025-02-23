@@ -6,6 +6,7 @@ import AnimatedText from "./components/AnimatedText";
 import { useEffect, useRef, useState } from "react";
 import useCustomScroll from "./hook/useCustomScroll";
 import Loading from "./components/Loading";
+import Projects from "./components/Projects";
 
 
 export default function App() {
@@ -13,8 +14,8 @@ export default function App() {
 
   const sections = [
     { title: "About Me", content: "Lorem ipsum dolor sit amet...", className: "" },
-    { title: "Projects", content: "Some amazing projects...", className: "items-end"},
-    { title: "Contact", content: "Contact me at...", className: ""},
+    // { title: "Projects", content: "Some amazing projects...", className: "items-end"},
+    // { title: "Contact", content: "Contact me at...", className: ""},
   ];
 
   useCustomScroll();
@@ -44,6 +45,7 @@ export default function App() {
           </section>
         ))}
       </div>
+      <Projects/>
     </div>
   );
 }

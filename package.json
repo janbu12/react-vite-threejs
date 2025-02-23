@@ -9,6 +9,17 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
+  "dependencies": {
+    "@react-three/drei": "^9.121.5",
+    "@react-three/fiber": "^8.17.14",
+    "@tailwindcss/vite": "^4.0.6",
+    "gsap": "^3.12.7",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.2.0",
+    "react-spinners": "^0.15.0",
+    "tailwindcss": "^4.0.6"
+  },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
     "@types/react": "^19.0.8",
@@ -20,15 +31,5 @@
     "eslint-plugin-react-refresh": "^0.4.18",
     "globals": "^15.14.0",
     "vite": "^6.1.0"
-  },
-  "dependencies": {
-    "@react-three/drei": "^9.121.5",
-    "@react-three/fiber": "^8.17.14",
-    "@tailwindcss/vite": "^4.0.6",
-    "gsap": "^3.12.7",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-spinners": "^0.15.0",
-    "tailwindcss": "^4.0.6"
   }
 }

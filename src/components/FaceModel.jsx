@@ -35,8 +35,8 @@ export default function FaceModel() {
 
     tl.to(modelRef.current.position, { x: -1.5, ease: "linear" }) // Geser ke kiri
       .to(modelRef.current.rotation, { y: Math.PI / 2, ease: "power2.inOut" }, "<")
-      .to(modelRef.current.position, { x: 1.5, ease: "linear" }) // Geser ke kanan
-      .to(modelRef.current.rotation, { y: -Math.PI / 2, ease: "power2.inOut" }, "<");
+      // .to(modelRef.current.position, { x: 1.5, ease: "linear" }) // Geser ke kanan
+      // .to(modelRef.current.rotation, { y: -Math.PI / 2, ease: "power2.inOut" }, "<");
 
       window.addEventListener("resize", updatePosition);
 

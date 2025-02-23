@@ -56,7 +56,7 @@ function AnimatedText({ children, index, className = "" }) {
   return (
     <div
       ref={textRef}
-      className={`content  lg:bg-transparent px-4 py-2 ${className} rounded`}
+      className={`content px-6 py-4 ${className} rounded`}
     >
       {children}
     </div>
