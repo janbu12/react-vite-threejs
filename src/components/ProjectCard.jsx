@@ -4,7 +4,7 @@ function ProjectCard({project, index, currentIndex}) {
   const isActive = index === currentIndex;
   
   return (
-    <div className="flex flex-col w-full max-w-max items-center bg-[rgba(255,255,255,0.03)] px-4 py-3 rounded group"
+    <div className="flex flex-col max-w-max items-center bg-[rgba(255,255,255,0.03)] px-4 py-3 rounded group"
       style={{
         boxShadow:`0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05)`,
         transition: "box-shadow 0.3s ease-in-out",
@@ -12,7 +12,7 @@ function ProjectCard({project, index, currentIndex}) {
     >
         <h2 className="font-semibold text-xl text-start w-full">{project.title}</h2>
         {/* Gambar Project */}
-        <div className="relative w-80 mt-2">
+        <div className="relative w-full sm:w-80 mt-2">
           <img src={project.image} alt={project.title} className="w-full h-full object-cover rounded transition-all duration-300" />
           
           {isActive && (

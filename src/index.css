@@ -14,7 +14,7 @@ body::-webkit-scrollbar {
 }
 
 .section {
-  @apply h-screen p-3 flex items-center relative z-10 lg:justify-center
+  @apply h-screen p-3 flex items-center z-30 lg:justify-center
 }
 
 .section:nth-child(even) {

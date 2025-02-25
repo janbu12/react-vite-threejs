@@ -7,6 +7,8 @@ import { useEffect, useRef, useState } from "react";
 import useCustomScroll from "./hook/useCustomScroll";
 import Loading from "./components/Loading";
 import Projects from "./components/Projects";
+import Particles from "./components/Particles";
+import GridMotion from "./components/GridMotion";
 
 
 export default function App() {
@@ -24,16 +26,31 @@ export default function App() {
     <div>
       { isLoading && <Loading isLoading={isLoading} />}
       <div className="w-full fixed h-screen bg-[radial-gradient(ellipse_at_bottom,rgba(45,45,45,1)_10%,rgba(13,13,13,1)_70%)]">
-        <Canvas camera={{ position: [0, 0, 5], fov: 45 }} style={{ width:'100vw' }} gl={{ antialias: true }}>
-          <ambientLight intensity={0.5}/>
-          <directionalLight position={[2, -3, 2]} intensity={3}/>
-          <directionalLight position={[-4, 0, -1]} intensity={5} color={'#A91D3A'}/>
+        <div className="w-full fixed h-screen">
+          <Particles
+              particleColors={['#ffffff', '#ffffff']}
+              particleCount={200}
+              particleSpread={10}
+              speed={0.1}
+              particleBaseSize={100}
+              moveParticlesOnHover={true}
+              alphaParticles={false}
+              disableRotation={false}
+          />
+        </div>
+        <div className="w-full fixed h-screen">
+          <Canvas camera={{ position: [0, 0, 5], fov: 45 }} style={{ width:'100vw', zIndex:30 }} gl={{ antialias: true }}>
+            <ambientLight intensity={0.5}/>
+            <directionalLight position={[2, -3, 2]} intensity={3}/>
+            <directionalLight position={[-4, 0, -1]} intensity={5} color={'#A91D3A'}/>
 
-          <FaceModel />
+            <FaceModel />
 
-          <Environment preset="night" environmentIntensity={1.3} />
-        </Canvas>
+            <Environment preset="night" environmentIntensity={1.3} />
+          </Canvas>
+        </div>
       </div>
+        
 
       <div className="flex flex-col gap-3">
         {sections.map((section, index) => (
@@ -44,8 +61,8 @@ export default function App() {
             </AnimatedText>
           </section>
         ))}
-      </div>
       <Projects/>
+      </div>
     </div>
   );
 }
