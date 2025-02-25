@@ -4,6 +4,21 @@ import ProjectCard from './ProjectCard';
 
 function ProjectCarousel({ projects }) {
     const [currentIndex, setCurrentIndex] = useState(1);
+    const [itemsPerView, setItemsPerView] = useState(1);
+
+    useEffect(() => {
+        const updateItemsPerView = () => {
+            if (window.innerWidth >= 400) {
+                setItemsPerView(2); // Desktop: 3 kartu
+            } else {
+                setItemsPerView(1); // Mobile: 1 kartu
+            }
+        };
+
+        updateItemsPerView();
+        window.addEventListener("resize", updateItemsPerView);
+        return () => window.removeEventListener("resize", updateItemsPerView);
+    }, []);
 
   const extendedProjects = useMemo(() => [
     projects[projects.length - 1],
@@ -35,11 +50,11 @@ function ProjectCarousel({ projects }) {
 
 
   return (
-    <div className="relative w-full max-w-3xl overflow-hidden bg-[rgba(0,0,0,0.3)] px-8 py-5 mt-5 rounded-lg">
+    <div className="absolute w-full right-0 lg:max-w-3xl overflow-hidden bg-[rgba(0,0,0,0.3)] px-8 py-5 mt-5 rounded-lg">
       {/* Wrapper untuk animasi geser */}
       <motion.div
         className="flex gap-5"
-        animate={{ x: `-${currentIndex * 50}%`}}
+        animate={{ x: `-${(currentIndex) * (100 / itemsPerView)}%` }}
         transition={{ type: "spring", stiffness: 200, damping: 20 }}
       >
         {extendedProjects.map((project, index) => (

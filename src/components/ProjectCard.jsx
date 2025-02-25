@@ -12,7 +12,7 @@ function ProjectCard({project, index, currentIndex}) {
     >
         <h2 className="font-semibold text-xl text-start w-full">{project.title}</h2>
         {/* Gambar Project */}
-        <div className="relative w-full sm:w-80 mt-2">
+        <div className="relative w-64 sm:w-80 mt-2">
           <img src={project.image} alt={project.title} className="w-full h-full object-cover rounded transition-all duration-300" />
           
           {isActive && (
