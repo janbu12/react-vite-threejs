@@ -9,6 +9,9 @@ import Loading from "./components/Loading";
 import Projects from "./components/Projects";
 import Particles from "./components/Particles";
 import GridMotion from "./components/GridMotion";
+import SplashCursor from "./components/SplashCursor";
+import Dock from "./components/Dock";
+import { VscAccount, VscArchive, VscHome, VscSettingsGear } from "react-icons/vsc";
 
 
 export default function App() {
@@ -20,10 +23,28 @@ export default function App() {
     // { title: "Contact", content: "Contact me at...", className: ""},
   ];
 
+  const items = [
+    { icon: <VscHome size={18} />, label: 'Home', onClick: () => alert('Home!') },
+    { icon: <VscArchive size={18} />, label: 'Archive', onClick: () => alert('Archive!') },
+    { icon: <VscAccount size={18} />, label: 'Profile', onClick: () => alert('Profile!') },
+    { icon: <VscSettingsGear size={18} />, label: 'Settings', onClick: () => alert('Settings!') },
+  ];
+
   useCustomScroll();
 
   return (
     <div>
+      <div className="fixed w-full h-screen z-50">
+        <Dock 
+          items={items}
+          panelHeight={68}
+          baseItemSize={50}
+          magnification={70}
+        />
+      </div>
+      <div className="hidden md:block">
+        <SplashCursor />
+      </div>
       { isLoading && <Loading isLoading={isLoading} />}
       <div className="w-full fixed h-screen bg-[radial-gradient(ellipse_at_bottom,rgba(45,45,45,1)_10%,rgba(13,13,13,1)_70%)]">
         <div className="w-full fixed h-screen">
