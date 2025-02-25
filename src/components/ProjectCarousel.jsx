@@ -50,7 +50,7 @@ function ProjectCarousel({ projects }) {
 
 
   return (
-    <div className="absolute w-full right-0 lg:max-w-3xl overflow-hidden bg-[rgba(0,0,0,0.3)] px-8 py-5 mt-5 rounded-lg">
+    <div className="relative w-full right-0 lg:max-w-3xl overflow-hidden bg-[rgba(0,0,0,0.3)] px-8 py-5 mt-5 rounded-lg">
       {/* Wrapper untuk animasi geser */}
       <motion.div
         className="flex gap-5"
