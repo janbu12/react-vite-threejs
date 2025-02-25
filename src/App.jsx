@@ -34,7 +34,7 @@ export default function App() {
 
   return (
     <div>
-      <div className="fixed w-full bottom-10 z-50">
+      <div className="fixed w-full bottom-2 z-50">
         <Dock 
           items={items}
           panelHeight={68}
