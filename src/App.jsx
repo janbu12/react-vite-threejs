@@ -18,14 +18,14 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   const sections = [
-    { title: "About Me", content: "Lorem ipsum dolor sit amet...", className: "" },
+    { title: "About Me", content: "Lorem ipsum dolor sit amet...", className: "", id:"home"},
     // { title: "Projects", content: "Some amazing projects...", className: "items-end"},
     // { title: "Contact", content: "Contact me at...", className: ""},
   ];
 
   const items = [
-    { icon: <VscHome size={18} />, label: 'Home', onClick: () => alert('Home!') },
-    { icon: <VscArchive size={18} />, label: 'Archive', onClick: () => alert('Archive!') },
+    { icon: <VscHome size={18} />, label: 'Home', onClick: () => document.getElementById("home").scrollIntoView({ behavior: "smooth" })},
+    { icon: <VscArchive size={18} />, label: 'Projects', onClick: () => document.getElementById("projects").scrollIntoView({ behavior: "smooth" }) },
     { icon: <VscAccount size={18} />, label: 'Profile', onClick: () => alert('Profile!') },
     { icon: <VscSettingsGear size={18} />, label: 'Settings', onClick: () => alert('Settings!') },
   ];
@@ -75,7 +75,7 @@ export default function App() {
 
       <div className="flex flex-col gap-3">
         {sections.map((section, index) => (
-          <section key={index} className="section">
+          <section key={index} id={section.id} className="section">
             <AnimatedText index={index} className={section.className}>
               <h2 className="font-semibold text-3xl md:text-7xl">{section.title}</h2>
               <p className="text-base md:text-2xl">{section.content}</p>

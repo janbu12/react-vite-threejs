@@ -33,7 +33,7 @@ function Projects() {
   ];
 
   return (
-    <section className="section">
+    <section className="section" id="projects">
       <div className="w-full sm:max-w-svh absolute right-0">
         <h2 className="font-semibold px-3 text-end md:text-start md:px-0 text-3xl md:text-5xl">My Projects</h2>
         <ProjectCarousel projects={projects} />
