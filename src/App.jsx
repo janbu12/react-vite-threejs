@@ -12,13 +12,14 @@ import GridMotion from "./components/GridMotion";
 import SplashCursor from "./components/SplashCursor";
 import Dock from "./components/Dock";
 import { VscAccount, VscArchive, VscHome, VscSettingsGear } from "react-icons/vsc";
+import BlurText from "./components/BlurText";
 
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   const sections = [
-    { title: "About Me", content: "Lorem ipsum dolor sit amet...", className: "", id:"home"},
+    { title: "Hello I'm Mizan", content: "Lorem ipsum dolor sit amet...", className: "", id:"home"},
     // { title: "Projects", content: "Some amazing projects...", className: "items-end"},
     // { title: "Contact", content: "Contact me at...", className: ""},
   ];
@@ -77,7 +78,13 @@ export default function App() {
         {sections.map((section, index) => (
           <section key={index} id={section.id} className="section">
             <AnimatedText index={index} className={section.className}>
-              <h2 className="font-semibold text-3xl md:text-7xl">{section.title}</h2>
+            <BlurText
+                text={section.title}
+                delay={150}
+                animateBy="words"
+                direction="top"
+                className="font-semibold text-3xl md:text-5xl"
+              />
               <p className="text-base md:text-2xl">{section.content}</p>
             </AnimatedText>
           </section>
