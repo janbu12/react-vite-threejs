@@ -22,20 +22,22 @@ function ProjectCard({project, index, currentIndex}) {
             <p className="text-sm text-white sm:text-gray-400">{project.stack}</p>
         </div>
         <div className="flex gap-4 mt-4">
-        <a
-          href={`${index === currentIndex ? project.link : ""}`}
-          target="_blank"
-          className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-800 transition-all"
-        >
-          Visit Site
-        </a>
-        <a
-          href={project.github}
-          target="_blank"
-          className="bg-gray-800 text-white px-4 py-2 rounded-lg text-sm hover:bg-gray-900 transition-all"
-        >
-          Github
-        </a>
+          {project.link && (
+            <a
+              href={project.link}
+              target="_blank"
+              className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-800 transition-all"
+            >
+              Visit Site
+            </a>
+          )}
+          <a
+            href={project.github}
+            target="_blank"
+            className="bg-gray-800 text-white px-4 py-2 rounded-lg text-sm hover:bg-gray-900 transition-all"
+          >
+            Github
+          </a>
       </div>
     </div>
   )

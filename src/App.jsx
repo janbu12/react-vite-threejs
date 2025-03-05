@@ -13,6 +13,9 @@ import SplashCursor from "./components/SplashCursor";
 import Dock from "./components/Dock";
 import { VscAccount, VscArchive, VscHome, VscSettingsGear } from "react-icons/vsc";
 import BlurText from "./components/BlurText";
+import RotatingText from "./components/RotatingText";
+import Header from "./components/Header";
+import SkillStack from "./components/SkillStack";
 
 
 export default function App() {
@@ -75,20 +78,8 @@ export default function App() {
         
 
       <div className="flex flex-col gap-3">
-        {sections.map((section, index) => (
-          <section key={index} id={section.id} className="section">
-            <AnimatedText index={index} className={section.className}>
-            <BlurText
-                text={section.title}
-                delay={150}
-                animateBy="words"
-                direction="top"
-                className="font-semibold text-3xl md:text-5xl"
-              />
-              <p className="text-base md:text-2xl">{section.content}</p>
-            </AnimatedText>
-          </section>
-        ))}
+      <Header/>
+      <SkillStack/>
       <Projects/>
       </div>
     </div>

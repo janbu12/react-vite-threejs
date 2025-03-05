@@ -33,3 +33,11 @@ body::-webkit-scrollbar {
   position: relative;
   z-index: 1;
 }
+
+@theme {
+  --animate-marquee: marquee 10s linear infinite;
+  @keyframes marquee {
+    0% {transform: translateX(0%);},
+    100% {transform: translateX(-100%);}
+  }
+}
